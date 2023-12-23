@@ -1,6 +1,6 @@
-﻿using LibraryAPI.Repository;
+﻿using LibraryApi.Repository;
 
-namespace LibraryAPI.Service
+namespace LibraryApi.Service
 {
     public class BookService : IBookService
     {

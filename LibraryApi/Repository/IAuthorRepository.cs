@@ -1,6 +1,6 @@
-﻿using LibraryAPI.Domain;
+﻿using LibraryApi.Domain;
 
-namespace LibraryAPI.Repository
+namespace LibraryApi.Repository
 {
     public interface IAuthorRepository
     {

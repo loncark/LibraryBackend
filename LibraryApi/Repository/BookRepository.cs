@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace LibraryAPI.Repository
+namespace LibraryApi.Repository
 {
     public class BookRepository : IBookRepository
     {

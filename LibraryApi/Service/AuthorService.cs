@@ -1,7 +1,7 @@
-﻿using LibraryAPI.Domain;
-using LibraryAPI.Repository;
+﻿using LibraryApi.Domain;
+using LibraryApi.Repository;
 
-namespace LibraryAPI.Service
+namespace LibraryApi.Service
 {
     public class AuthorService : IAuthorService
     {

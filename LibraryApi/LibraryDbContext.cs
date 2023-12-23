@@ -1,6 +1,6 @@
-﻿namespace LibraryAPI
+﻿namespace LibraryApi
 {
-    using LibraryAPI.Domain;
+    using LibraryApi.Domain;
     using Microsoft.EntityFrameworkCore;
 
     public class LibraryDbContext : DbContext

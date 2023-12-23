@@ -1,8 +1,8 @@
-﻿using LibraryAPI.Domain;
-using LibraryAPI.Service;
+﻿using LibraryApi.Domain;
+using LibraryApi.Service;
 using Microsoft.AspNetCore.Mvc;
 
-namespace LibraryAPI.Controllers
+namespace LibraryApi.Controllers
 {
     [ApiController]
     [Route("api/author")]

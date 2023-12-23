@@ -1,6 +1,6 @@
-using LibraryAPI.Domain;
+using LibraryApi.Domain;
 
-namespace LibraryAPI
+namespace LibraryApi
 {
     public class Book
     {

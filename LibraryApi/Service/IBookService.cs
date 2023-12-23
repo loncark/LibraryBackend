@@ -1,4 +1,4 @@
-﻿namespace LibraryAPI.Service
+﻿namespace LibraryApi.Service
 {
     public interface IBookService
     {

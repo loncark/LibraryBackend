@@ -1,4 +1,4 @@
-﻿namespace LibraryAPI.Domain
+﻿namespace LibraryApi.Domain
 {
     public class Author
     {

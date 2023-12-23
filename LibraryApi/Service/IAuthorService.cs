@@ -1,6 +1,6 @@
-﻿using LibraryAPI.Domain;
+﻿using LibraryApi.Domain;
 
-namespace LibraryAPI.Service
+namespace LibraryApi.Service
 {
     public interface IAuthorService
     {

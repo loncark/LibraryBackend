@@ -1,8 +1,8 @@
-using LibraryAPI.Service;
+using LibraryApi.Service;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace LibraryAPI.Controllers
+namespace LibraryApi.Controllers
 {
     [ApiController]
     [Route("book")]

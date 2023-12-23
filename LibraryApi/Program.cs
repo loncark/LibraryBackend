@@ -1,6 +1,6 @@
-using LibraryAPI;
-using LibraryAPI.Repository;
-using LibraryAPI.Service;
+using LibraryApi;
+using LibraryApi.Repository;
+using LibraryApi.Service;
 using Microsoft.Extensions.Configuration;
 var builder = WebApplication.CreateBuilder(args);
 

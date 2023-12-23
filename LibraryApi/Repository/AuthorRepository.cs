@@ -1,7 +1,7 @@
-﻿using LibraryAPI.Domain;
+﻿using LibraryApi.Domain;
 using Microsoft.EntityFrameworkCore;
 
-namespace LibraryAPI.Repository
+namespace LibraryApi.Repository
 {
     public class AuthorRepository : IAuthorRepository
     {
