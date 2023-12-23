@@ -1,14 +1,14 @@
 using LibraryAPI;
-//using LibraryAPI.Repository;
-//using LibraryAPI.Service;
+using LibraryAPI.Repository;
+using LibraryAPI.Service;
 using Microsoft.Extensions.Configuration;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddDbContext<LibraryDbContext>();
-//builder.Services.AddScoped<BookRepository>();
-//builder.Services.AddScoped<BookService>();
+builder.Services.AddScoped<IBookRepository, BookRepository>();
+builder.Services.AddScoped<IBookService, BookService>();
 //builder.Services.AddScoped<AuthorRepository>();
 //builder.Services.AddScoped<AuthorService>();
 

@@ -1,0 +1,63 @@
+Assumed: project is created and classes to be stored in DB are written.
+
+1. Download and install Microsoft SQL Server and SQL Server Management Studio.
+In NuGet Package manager, install Entity Framework Core, Design and Tools.
+
+2. In Studio, log in using windows authentication, and as soon as you get in,
+ go to Security -> Logins and click on properties of 'sa' login. 
+ Change from Windows auth to SQL Server auth.
+
+3. When Studio prompts you to log in, use 'Database engine', server name '.'
+and Windows auth. 
+
+4. Create a new database for the project, write and execute a sql script 
+to create and populate the tables (use ChatGPT to match existing classes).
+
+5. Open Server explorer in Visual Studio and create a connection to
+the new database.
+
+6. Create a basic DatabaseContext (LibraryDbCOntext in this case):
+
+namespace LibraryAPI
+{
+    using Microsoft.EntityFrameworkCore;
+
+    public class LibraryDbContext : DbContext
+    {
+        public DbSet<Author> Authors { get; set; }
+
+        public DbSet<Book> Books { get; set; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            // Configure your SQL Server connection string here
+            optionsBuilder.UseSqlServer("your-connection-string");
+        }
+    }
+
+}
+
+7. Add TrustServerCertificate=True to the end of the connection string which
+can be found by clicking on propeties on your connection in server explorer.
+(Otherwise you will get an error after the request is sent.)
+
+8. Add builder.Services.AddDbContext<LibraryDbContext>(); to Program.cs
+before AddControllers().
+
+9. Write a basic method inside the controller:
+[HttpGet]
+        public async Task<ActionResult<IEnumerable<Author>>> GetAllAuthors()
+        {
+            var authors = await _context.Authors.ToListAsync();
+
+            if (authors == null || authors.Count == 0)
+            {
+                return NotFound("No authors found.");
+            }
+
+            return Ok(authors);
+        }
+
+ALTERNATIVELY
+Here is how you can create models in .NET from the existing database:
+https://www.youtube.com/watch?v=DCYVfLT5_QI&t=193s

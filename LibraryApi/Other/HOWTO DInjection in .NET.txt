@@ -1,0 +1,27 @@
+Example of a Service class that injects repository:
+
+public class BookService
+    {
+        private readonly BookRepository _repository;
+
+        public BookService(BookRepository repository)
+        {
+            _repository = repository;
+        }
+
+        public async Task<IEnumerable<Book>> GetAllBooksAsync()
+        {
+            var books = await _repository.GetAllBooksAsync();
+
+            return books.Select(book => new Book
+            {
+                Id = book.Id,
+                AuthorId = book.AuthorId,
+                Name = book.Name
+            });
+        }
+    }
+
+In order for it to work, add to Program.cs:
+
+builder.Services.AddScoped<BookRepository>();
