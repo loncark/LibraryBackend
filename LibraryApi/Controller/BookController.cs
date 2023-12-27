@@ -1,4 +1,5 @@
 using LibraryApi.Service;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -66,7 +67,7 @@ namespace LibraryApi.Controllers
             return Ok(updatedBook);
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("{id}"), Authorize(Roles = "Admin")]
         public async Task<ActionResult> DeleteBook(int id)
         {
             var result = await _bookService.DeleteBook(id);

@@ -11,6 +11,8 @@
 
         public DbSet<Book> Books { get; set; }
 
+        public DbSet<User> Users { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             var client = new SecretClient(vaultUri: new Uri("https://algebravault.vault.azure.net/"), credential: new VisualStudioCredential());

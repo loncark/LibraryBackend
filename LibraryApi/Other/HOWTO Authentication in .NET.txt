@@ -1,0 +1,17 @@
+[Code by Patrick God: https://github.com/patrickgod/JwtWebApiTutorial]
+
+1. Create User and UserDto class, add corresponding controller, service and repository.
+Update Program.cs and DbContext correspondingly.
+Create new Users table in SQL Server, don't populate it.
+
+2. Create AuthController, make sure register calls CreateUser and login getUserByUsername.
+
+3. Add Authorize attribute to a controller endpoint. (Here it is DELETE in BookController.)
+
+4. Update Program.cs to enable Authorization header in Swagger. (See commit history for details.)
+
+5. Once you run the app, register first using Swagger auth/register endpoint.
+Then log in using those credentials.
+Copy the token that was returned.
+Go to a book DELETE endpoint and click the lock on the side, write "bearer {JWT}", click close.
+DELETE should now work.

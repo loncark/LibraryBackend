@@ -1,5 +1,6 @@
 ﻿using LibraryApi.Domain;
 using LibraryApi.Service;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LibraryApi.Controllers

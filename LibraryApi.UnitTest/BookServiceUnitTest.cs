@@ -16,7 +16,7 @@ namespace UnitTests
         [Fact]
         public async Task GetAllBooksAsync_ShouldReturnMappedBooks()
         {
-            var bookRepositoryMock = new Mock<IBookRepository>();
+            var bookRepositoryMock = new Mock<IUserRepository>();
 
             var repositoryBooks = new List<Book>
             {
@@ -45,7 +45,7 @@ namespace UnitTests
         [Fact]
         public async Task GetAllBooksAsync_ShouldReturnEmptyListWhenNoBooks()
         {
-            var bookRepositoryMock = new Mock<IBookRepository>();
+            var bookRepositoryMock = new Mock<IUserRepository>();
             bookRepositoryMock.Setup(repo => repo.GetAllBooksAsync())
                               .ReturnsAsync(new List<Book>());
 
@@ -60,7 +60,7 @@ namespace UnitTests
         [Fact]
         public async Task GetBookByIdAsync_ShouldReturnNullIfBookNotFound()
         {
-            var bookRepositoryMock = new Mock<IBookRepository>();
+            var bookRepositoryMock = new Mock<IUserRepository>();
             bookRepositoryMock.Setup(repo => repo.GetBookByIdAsync(It.IsAny<int>()))
                               .ReturnsAsync((Book)null);
 
@@ -74,7 +74,7 @@ namespace UnitTests
         [Fact]
         public async Task GetBookByIdAsync_ShouldReturnBook()
         {
-            var bookRepositoryMock = new Mock<IBookRepository>();
+            var bookRepositoryMock = new Mock<IUserRepository>();
 
             var expectedBook = new Book { Id = 1, AuthorId = 101, Name = "Book1" };
             bookRepositoryMock.Setup(repo => repo.GetBookByIdAsync(It.IsAny<int>()))
@@ -91,7 +91,7 @@ namespace UnitTests
         [Fact]
         public async Task AddBook_ShouldReturnAddedBook()
         {
-            var bookRepositoryMock = new Mock<IBookRepository>();
+            var bookRepositoryMock = new Mock<IUserRepository>();
 
             var bookToAdd = new Book { Id = 1, AuthorId = 101, Name = "Book1" };
             bookRepositoryMock.Setup(repo => repo.CreateBook(It.IsAny<Book>()))
@@ -108,7 +108,7 @@ namespace UnitTests
         [Fact]
         public async Task AddBook_ShouldReturnNullIfAddFails()
         {
-            var bookRepositoryMock = new Mock<IBookRepository>();
+            var bookRepositoryMock = new Mock<IUserRepository>();
             bookRepositoryMock.Setup(repo => repo.CreateBook(It.IsAny<Book>()))
                               .ReturnsAsync((Book)null);
 
@@ -123,7 +123,7 @@ namespace UnitTests
         public async Task UpdateBook_ShouldReturnUpdatedBook()
         {
             // Arrange
-            var bookRepositoryMock = new Mock<IBookRepository>();
+            var bookRepositoryMock = new Mock<IUserRepository>();
 
             // Mock data to be returned by the repository
             var existingBook = new Book { Id = 1, AuthorId = 101, Name = "Book1" };
@@ -149,7 +149,7 @@ namespace UnitTests
         [Fact]
         public async Task UpdateBook_InvalidData_ShouldThrowArgumentException()
         {
-            var bookRepositoryMock = new Mock<IBookRepository>();
+            var bookRepositoryMock = new Mock<IUserRepository>();
             var bookService = new BookService(bookRepositoryMock.Object);
 
             await Assert.ThrowsAsync<ArgumentException>(() => bookService.UpdateBook(1, null));
@@ -158,7 +158,7 @@ namespace UnitTests
         [Fact]
         public async Task UpdateBook_BookNotFound_ShouldThrowFileNotFoundException()
         {
-            var bookRepositoryMock = new Mock<IBookRepository>();
+            var bookRepositoryMock = new Mock<IUserRepository>();
             bookRepositoryMock.Setup(repo => repo.GetBookByIdAsync(It.IsAny<int>()))
                               .ReturnsAsync((Book)null);
 
@@ -170,7 +170,7 @@ namespace UnitTests
         [Fact]
         public async Task DeleteBook_ShouldReturnTrueIfBookDeleted()
         {
-            var bookRepositoryMock = new Mock<IBookRepository>();
+            var bookRepositoryMock = new Mock<IUserRepository>();
 
             var bookToDelete = new Book { Id = 1, AuthorId = 101, Name = "Book1" };
             bookRepositoryMock.Setup(repo => repo.GetBookByIdAsync(It.IsAny<int>()))
@@ -189,7 +189,7 @@ namespace UnitTests
         [Fact]
         public async Task DeleteBook_ShouldReturnFalseIfBookNotFound()
         {
-            var bookRepositoryMock = new Mock<IBookRepository>();
+            var bookRepositoryMock = new Mock<IUserRepository>();
             bookRepositoryMock.Setup(repo => repo.GetBookByIdAsync(It.IsAny<int>()))
                               .ReturnsAsync((Book)null);
 
