@@ -1,4 +1,5 @@
 ﻿using LibraryApi.Domain;
+using LibraryApi.Repository.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace LibraryApi.Repository

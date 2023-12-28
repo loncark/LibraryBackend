@@ -15,11 +15,8 @@
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            var client = new SecretClient(vaultUri: new Uri("https://algebravault.vault.azure.net/"), credential: new VisualStudioCredential());
-            var secret = client.GetSecret("DatabaseConnectionString");
-
-            // Configure your SQL Server connection string here
-            optionsBuilder.UseSqlServer(secret.Value.Value);
+            KeyVaultHandler vaultHandler = new KeyVaultHandler();
+            optionsBuilder.UseSqlServer(vaultHandler.GetSecret("DatabaseConnectionString"));
             
             // Connection String: Data Source=KRISTINA-ASUS-2;Initial Catalog=LibraryDb;Integrated Security=True;TrustServerCertificate=True
         }

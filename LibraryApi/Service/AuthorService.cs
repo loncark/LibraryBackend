@@ -1,5 +1,6 @@
 ﻿using LibraryApi.Domain;
-using LibraryApi.Repository;
+using LibraryApi.Repository.Interfaces;
+using LibraryApi.Service.Interfaces;
 
 namespace LibraryApi.Service
 {

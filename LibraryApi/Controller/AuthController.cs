@@ -1,5 +1,5 @@
 ﻿using LibraryApi.Domain;
-using LibraryApi.Service;
+using LibraryApi.Service.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LibraryApi.Controller

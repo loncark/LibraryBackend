@@ -2,7 +2,7 @@
 using LibraryApi.Controller;
 using LibraryApi.Controllers;
 using LibraryApi.Domain;
-using LibraryApi.Service;
+using LibraryApi.Service.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Moq;

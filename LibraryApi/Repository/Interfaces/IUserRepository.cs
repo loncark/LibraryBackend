@@ -1,6 +1,6 @@
 ﻿using LibraryApi.Domain;
 
-namespace LibraryApi.Repository
+namespace LibraryApi.Repository.Interfaces
 {
     public interface IUserRepository
     {

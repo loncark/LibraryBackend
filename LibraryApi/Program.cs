@@ -2,7 +2,9 @@ using Azure.Identity;
 using Azure.Security.KeyVault.Secrets;
 using LibraryApi;
 using LibraryApi.Repository;
+using LibraryApi.Repository.Interfaces;
 using LibraryApi.Service;
+using LibraryApi.Service.Interfaces;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
@@ -36,14 +38,16 @@ builder.Services.AddSwaggerGen(options => {
     options.OperationFilter<SecurityRequirementsOperationFilter>();
 });
 
+KeyVaultHandler vaultHandler = new KeyVaultHandler();
+string jwtSecret = vaultHandler.GetSecret("JwtSecret");
+
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
         options.TokenValidationParameters = new TokenValidationParameters
         {
             ValidateIssuerSigningKey = true,
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8
-                .GetBytes(builder.Configuration.GetSection("AppSettings:Token").Value)),
+            IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(jwtSecret)),
             ValidateIssuer = false,
             ValidateAudience = false
         };

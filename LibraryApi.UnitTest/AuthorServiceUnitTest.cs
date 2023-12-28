@@ -1,5 +1,5 @@
 ﻿using LibraryApi.Domain;
-using LibraryApi.Repository;
+using LibraryApi.Repository.Interfaces;
 using LibraryApi.Service;
 using Moq;
 using System;

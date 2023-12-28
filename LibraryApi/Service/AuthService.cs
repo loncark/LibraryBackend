@@ -1,6 +1,7 @@
 ﻿using Azure.Identity;
 using Azure.Security.KeyVault.Secrets;
 using LibraryApi.Domain;
+using LibraryApi.Service.Interfaces;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
@@ -26,8 +27,10 @@ namespace LibraryApi.Service
                 new Claim(ClaimTypes.Role, "Admin")
             };
 
-            var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(
-                _configuration.GetSection("AppSettings:Token").Value));
+            KeyVaultHandler vaultHandler = new KeyVaultHandler();
+            string jwtSecret = vaultHandler.GetSecret("JwtSecret");
+
+            var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(jwtSecret));
 
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
 

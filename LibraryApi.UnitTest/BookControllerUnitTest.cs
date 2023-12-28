@@ -1,5 +1,4 @@
 ﻿using LibraryApi.Controllers;
-using LibraryApi.Service;
 using LibraryApi;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
@@ -8,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LibraryApi.Service.Interfaces;
 
 namespace UnitTests
 {

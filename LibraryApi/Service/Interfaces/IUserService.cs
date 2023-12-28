@@ -1,6 +1,6 @@
 ﻿using LibraryApi.Domain;
 
-namespace LibraryApi.Service
+namespace LibraryApi.Service.Interfaces
 {
     public interface IUserService
     {

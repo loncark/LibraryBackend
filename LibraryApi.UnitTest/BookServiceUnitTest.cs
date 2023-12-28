@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using LibraryApi;
 using LibraryApi.Domain;
-using LibraryApi.Repository;
+using LibraryApi.Repository.Interfaces;
 using LibraryApi.Service;
 using Moq;
 using Xunit;
