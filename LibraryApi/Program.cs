@@ -1,3 +1,5 @@
+using Azure.Identity;
+using Azure.Security.KeyVault.Secrets;
 using LibraryApi;
 using LibraryApi.Repository;
 using LibraryApi.Service;
@@ -18,6 +20,7 @@ builder.Services.AddScoped<IAuthorRepository, AuthorRepository>();
 builder.Services.AddScoped<IAuthorService, AuthorService>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IAuthService, AuthService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -32,6 +35,7 @@ builder.Services.AddSwaggerGen(options => {
     });
     options.OperationFilter<SecurityRequirementsOperationFilter>();
 });
+
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
