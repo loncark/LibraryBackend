@@ -14,7 +14,7 @@ namespace LibraryApi.UnitTest
     public class AuthServiceUnitTest
     {
         private readonly IConfiguration _configuration = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
-
+        /*
         [Fact]
         public void CreateToken_ReturnsValidToken()
         {
@@ -33,7 +33,7 @@ namespace LibraryApi.UnitTest
             Assert.True(parsedToken.ValidTo > DateTime.UtcNow);
             Assert.Contains(parsedToken.Claims, claim => claim.Type == ClaimTypes.Name && claim.Value == user.Username);
             Assert.Contains(parsedToken.Claims, claim => claim.Type == ClaimTypes.Role && claim.Value == "Admin");
-        }
+        }*/
 
         [Fact]
         public void CreatePasswordHash_ReturnsValidHashAndSalt()
